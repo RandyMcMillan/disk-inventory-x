@@ -3,7 +3,9 @@
 "ShowPreferences.label" = "Preferences";
 "ToggleKindsStatisticDrawer.label" = "Show File Kind Statistics";
 "ZoomIn.label" = "Zoom In";
+"ZoomIn.paletteLabel" = "Zoom In";
 "ZoomOut.label" = "Zoom Out";
+"ZoomOut.paletteLabel" = "Zoom Out";
 "RevealInFinder.label" = "Reveal in Finder";
 "RefreshSelection.label" = "Refresh Selection";
 "RefreshAll.label" = "Refresh All";
