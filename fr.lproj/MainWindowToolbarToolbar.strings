@@ -2,6 +2,7 @@
 "ShowPackageContents.label" = "Show Package Contents";
 "ShowPreferences.label" = "Preferences";
 "ToggleKindsStatisticDrawer.label" = "Show File Kind Statistics";
+"ToggleKindsStatisticDrawer.paletteLabel" = "Show File Kind Statistics";
 "ZoomIn.label" = "Zoom In";
 "ZoomIn.paletteLabel" = "Zoom In";
 "ZoomOut.label" = "Zoom Out";
