@@ -678,28 +678,52 @@
 			remoteGlobalIDString = 8DC2EF5B0486A6940098B216;
 			remoteInfo = TreeMapView;
 		};
+		FC000001307D31540010474B /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 4B673340307D31530010474B /* OmniAppKit.xcodeproj */;
+			proxyType = 1;
+			remoteGlobalIDString = 4AA1E67A08AA764600E2FF6B;
+			remoteInfo = OmniAppKit;
+		};
+		FC000002307D31540010474B /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 4B673384307D31530010474B /* OmniBase.xcodeproj */;
+			proxyType = 1;
+			remoteGlobalIDString = 4A33D40608A0191B003A3FA5;
+			remoteInfo = OmniBase;
+		};
+		FC000003307D31540010474B /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 4B673899307D31530010474B /* OmniFoundation.xcodeproj */;
+			proxyType = 1;
+			remoteGlobalIDString = 4A4E05FE08AA72B10098FF0F;
+			remoteInfo = OmniFoundation;
+		};
+		FC000004307D31540010474B /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 4B673FBA307D31690010474B /* TreeMapView.xcodeproj */;
+			proxyType = 1;
+			remoteGlobalIDString = 8DC2EF4F0486A6940098B216;
+			remoteInfo = TreeMapView;
+		};
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXTargetDependency section */
 		4B673FCA307D316A0010474B /* PBXTargetDependency */ = {
 			isa = PBXTargetDependency;
-			target = 4AA1E67A08AA764600E2FF6B /* OmniAppKit */;
-			targetProxy = 4B673EB6307D31540010474B /* PBXContainerItemProxy */;
+			targetProxy = FC000001307D31540010474B /* PBXContainerItemProxy */;
 		};
 		4B673FCB307D316A0010474B /* PBXTargetDependency */ = {
 			isa = PBXTargetDependency;
-			target = 4A33D40608A0191B003A3FA5 /* OmniBase */;
-			targetProxy = 4B673EC9307D31540010474B /* PBXContainerItemProxy */;
+			targetProxy = FC000002307D31540010474B /* PBXContainerItemProxy */;
 		};
 		4B673FCC307D316A0010474B /* PBXTargetDependency */ = {
 			isa = PBXTargetDependency;
-			target = 4A4E05FE08AA72B10098FF0F /* OmniFoundation */;
-			targetProxy = 4B673F24307D31540010474B /* PBXContainerItemProxy */;
+			targetProxy = FC000003307D31540010474B /* PBXContainerItemProxy */;
 		};
 		4B673FCD307D316A0010474B /* PBXTargetDependency */ = {
 			isa = PBXTargetDependency;
-			target = 8DC2EF4F0486A6940098B216 /* TreeMapView */;
-			targetProxy = 4B673FC3307D316A0010474B /* PBXContainerItemProxy */;
+			targetProxy = FC000004307D31540010474B /* PBXContainerItemProxy */;
 		};
 /* End PBXTargetDependency section */
 
