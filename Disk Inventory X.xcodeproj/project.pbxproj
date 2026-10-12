@@ -64,6 +64,7 @@
 		FCCFB327097FA42B009EA2B6 /* FileTypeColors.m in Sources */ = {isa = PBXBuildFile; fileRef = FCCFB2FF097FA42B009EA2B6 /* FileTypeColors.m */; };
 		FCCFB328097FA42B009EA2B6 /* FileSystemDoc.m in Sources */ = {isa = PBXBuildFile; fileRef = FCCFB301097FA42B009EA2B6 /* FileSystemDoc.m */; };
 		FCCFB33C097FA44A009EA2B6 /* MainWindowToolbar.toolbar in Resources */ = {isa = PBXBuildFile; fileRef = FCCFB32A097FA44A009EA2B6 /* MainWindowToolbar.toolbar */; };
+		FCCFB3A5307D31530010474B /* MainWindowToolbarToolbar.strings in Resources */ = {isa = PBXBuildFile; fileRef = FCCFB3A4307D31530010474B /* MainWindowToolbarToolbar.strings */; };
 		FCCFB33D097FA44A009EA2B6 /* ZoomOut.tiff in Resources */ = {isa = PBXBuildFile; fileRef = FCCFB32B097FA44A009EA2B6 /* ZoomOut.tiff */; };
 		FCCFB33E097FA44A009EA2B6 /* ZoomIn.tiff in Resources */ = {isa = PBXBuildFile; fileRef = FCCFB32C097FA44A009EA2B6 /* ZoomIn.tiff */; };
 		FCCFB33F097FA44A009EA2B6 /* KindsStatisticDrawer.tiff in Resources */ = {isa = PBXBuildFile; fileRef = FCCFB32D097FA44A009EA2B6 /* KindsStatisticDrawer.tiff */; };
@@ -2829,6 +2830,10 @@
 		4B6739B3307D31530010474B /* pt-BR */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = "pt-BR"; path = "pt-BR.lproj/Preferences.strings"; sourceTree = "<group>"; };
 		4B6739B4307D31530010474B /* ru */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = ru; path = ru.lproj/Preferences.strings; sourceTree = "<group>"; };
 		4B6739B5307D31530010474B /* zh-Hans */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = "zh-Hans"; path = "zh-Hans.lproj/Preferences.strings"; sourceTree = "<group>"; };
+		AA2B2B87277E43D10040ED6C /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/MainWindowToolbarToolbar.strings; sourceTree = "<group>"; };
+		AA2D7D8A21FE4ABD004D0614 /* de */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = de; path = de.lproj/MainWindowToolbarToolbar.strings; sourceTree = "<group>"; };
+		AA42B8772202405A0080570A /* es */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = es; path = es.lproj/MainWindowToolbarToolbar.strings; sourceTree = "<group>"; };
+		AAA1D0CC2205FF2D004E9468 /* fr */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = fr; path = fr.lproj/MainWindowToolbarToolbar.strings; sourceTree = "<group>"; };
 		4B6739B7307D31530010474B /* README.md */ = {isa = PBXFileReference; lastKnownFileType = net.daringfireball.markdown; path = README.md; sourceTree = "<group>"; };
 		4B6739B9307D31530010474B /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		4B6739BA307D31530010474B /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
@@ -9004,6 +9009,7 @@
 			isa = PBXGroup;
 			children = (
 				FCCFB32A097FA44A009EA2B6 /* MainWindowToolbar.toolbar */,
+				FCCFB3A4307D31530010474B /* MainWindowToolbarToolbar.strings */,
 				FCCFB32B097FA44A009EA2B6 /* ZoomOut.tiff */,
 				FCCFB32C097FA44A009EA2B6 /* ZoomIn.tiff */,
 				FCCFB32D097FA44A009EA2B6 /* KindsStatisticDrawer.tiff */,
@@ -9839,6 +9845,7 @@
 				FCCFB37C097FA4C1009EA2B6 /* LoadingPanel.nib in Resources */,
 				FCCFB37D097FA4C1009EA2B6 /* Localizable.strings in Resources */,
 				FCCFB37E097FA4C1009EA2B6 /* MainMenu.nib in Resources */,
+				FCCFB3A5307D31530010474B /* MainWindowToolbarToolbar.strings in Resources */,
 				FCCFB37F097FA4C1009EA2B6 /* Preferences.strings in Resources */,
 				FCCFB380097FA4C1009EA2B6 /* TreeMap.nib in Resources */,
 				FCCFB381097FA4C1009EA2B6 /* TreeMapPreferencesPage.nib in Resources */,
@@ -10705,6 +10712,17 @@
 				FC2B2B86277E43D10040ED6C /* en */,
 			);
 			name = Preferences.strings;
+			sourceTree = "<group>";
+		};
+		FCCFB3A4307D31530010474B /* MainWindowToolbarToolbar.strings */ = {
+			isa = PBXVariantGroup;
+			children = (
+				AA2D7D8A21FE4ABD004D0614 /* de */,
+				AA42B8772202405A0080570A /* es */,
+				AAA1D0CC2205FF2D004E9468 /* fr */,
+				AA2B2B87277E43D10040ED6C /* en */,
+			);
+			name = MainWindowToolbarToolbar.strings;
 			sourceTree = "<group>";
 		};
 		FCCFB36A097FA4C1009EA2B6 /* TreeMap.nib */ = {
