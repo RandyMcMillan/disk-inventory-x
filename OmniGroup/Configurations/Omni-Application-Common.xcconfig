@@ -18,7 +18,7 @@ OTHER_LDFLAGS = $(value) -ObjC
 ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES
 
 // Build setting overrides for the current store target
-#include "Omni-Application-Common-Store.xcconfig"
+#include "Omni-Application-Common-AppStore.xcconfig"
 
 // We want to sign all apps
 CODE_SIGN_IDENTITY = $(OMNI_MAC_CODE_SIGN_IDENTITY)

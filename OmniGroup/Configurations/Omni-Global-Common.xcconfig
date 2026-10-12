@@ -6,7 +6,7 @@
 #include "Private/Omni-Global.xcconfig"
 
 // Build setting overrides for the current store target
-#include "Omni-Global-Common-Store.xcconfig"
+#include "Omni-Global-Common-AppStore.xcconfig"
 
 // Common settings across platforms
 #include "Omni-Global-Settings.xcconfig"
