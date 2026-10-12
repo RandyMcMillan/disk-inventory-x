@@ -11,6 +11,7 @@
 #import <OmniDAV/ODAVConnection.h>
 #import <OmniDAV/ODAVOperation.h>
 #import <OmniFoundation/OFCredentials.h>
+#import <OmniFoundation/OFCredentialChallengeDispositionProtocol.h>
 #import <readpassphrase.h>
 #import <OmniCommandLine/OCLCommand.h>
 
@@ -278,16 +279,22 @@ int main(int argc, char *argv[])
         OCLCommand *strongCommand = [OCLCommand command];
         __weak OCLCommand *cmd = strongCommand;
 
-        ODAVConnection *connection = [[ODAVConnection alloc] init];
+        ODAVConnectionConfiguration *configuration = [[ODAVConnectionConfiguration alloc] init];
+        configuration.userAgent = @"ODAVTool/1.0";
+        NSURL *baseURL = [NSURL URLWithString:@"http://localhost/"];
+        ODAVConnection *connection = [[ODAVConnection alloc] initWithSessionConfiguration:configuration baseURL:baseURL];
+
         __block NSUInteger commandsRunning = 0;
         
-        connection.validateCertificateForChallenge = ^(NSURLAuthenticationChallenge *challenge){
+        connection.validateCertificateForChallenge = ^NSURLCredential *(NSURLAuthenticationChallenge *challenge){
             OBFinishPortingLater("<bug:///147928> (iOS-OmniOutliner Bug: Adding trust for certificate blindly - in validateCertificateForChallenge block)");
             OFAddTrustForChallenge(challenge, OFCertificateTrustDurationSession);
+            return nil;
         };
-        connection.findCredentialsForChallenge = ^NSURLCredential *(NSURLAuthenticationChallenge *challenge){
+        connection.findCredentialsForChallenge = ^NSOperation <OFCredentialChallengeDisposition> *(NSURLAuthenticationChallenge *challenge){
             OBFinishPortingLater("<bug:///147927> (iOS-OmniOutliner Bug: Just making up credentials in findCredentialsForChallenge block)");
-            return [NSURLCredential credentialWithUser:@"test" password:@"password" persistence:NSURLCredentialPersistenceForSession];
+            NSURLCredential *credential = [NSURLCredential credentialWithUser:@"test" password:@"password" persistence:NSURLCredentialPersistenceForSession];
+            return OFImmediateCredentialResponse(NSURLSessionAuthChallengeUseCredential, credential);
         };
         
         [cmd add:@"ls url" with:^{

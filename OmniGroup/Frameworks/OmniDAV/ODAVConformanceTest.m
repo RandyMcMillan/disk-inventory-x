@@ -285,10 +285,10 @@ static BOOL retry(NSError **outError, BOOL (^op)(NSError **))
             };
             
             runTest(YES);
-            [self _updatePercentDone:(2*progress.completed + 0)/(2.0*progress.total)];
+            [self _updatePercentDone:(2.0*(double)progress.completed + 0.0)/(2.0*(double)progress.total)];
 
             runTest(NO);
-            [self _updatePercentDone:(2*progress.completed + 1)/(2.0*progress.total)];
+            [self _updatePercentDone:(2.0*(double)progress.completed + 1.0)/(2.0*(double)progress.total)];
         }];
         
         // Clean up after ourselves
