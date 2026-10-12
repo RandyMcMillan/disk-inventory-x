@@ -151,6 +151,16 @@ No data will be read.</string>
 				<true/>
 				<key>SkipGitFolders</key>
 				<true/>
+				<key>SkipBuildFolders</key>
+				<true/>
+				<key>SkipDotBuildFolders</key>
+				<true/>
+				<key>SkipSwiftPMFolders</key>
+				<true/>
+				<key>SkipDerivedDataFolders</key>
+				<true/>
+				<key>SkipSourcePackagesFolders</key>
+				<true/>
 				<key>SplitWindowHorizontally</key>
 				<false/>
 				<key>UseSmallFontInFilesView</key>
@@ -193,6 +203,11 @@ No data will be read.</string>
 					<string>IgnoreCreatorCode</string>
 					<string>ShowPhysicalFileSize</string>
 					<string>SkipGitFolders</string>
+					<string>SkipBuildFolders</string>
+					<string>SkipDotBuildFolders</string>
+					<string>SkipSwiftPMFolders</string>
+					<string>SkipDerivedDataFolders</string>
+					<string>SkipSourcePackagesFolders</string>
 					<string>UseSmallFontInFilesView</string>
 					<string>UseSmallFontInKindStatisticView</string>
 					<string>UseSmallFontInSelectionList</string>

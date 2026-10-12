@@ -17,6 +17,17 @@
 
 @implementation GeneralPrefPage
 
+- (NSButton *)_checkboxWithTitle:(NSString *)title bindingKey:(NSString *)bindingKey
+{
+    NSButton *checkbox = [[[NSButton alloc] initWithFrame:NSZeroRect] autorelease];
+    [checkbox setButtonType:NSSwitchButton];
+    [checkbox setTitle:title];
+    [checkbox bind:NSValueBinding toObject:self withKeyPath:bindingKey options:nil];
+    [checkbox sizeToFit];
+    [checkbox setAutoresizingMask:NSViewMinYMargin | NSViewMaxXMargin];
+    return checkbox;
+}
+
 - (void)awakeFromNib
 {
     [super awakeFromNib];
@@ -25,22 +36,28 @@
     if (controlBox == nil)
         return;
 
-    NSButton *skipGitCheckbox = [[[NSButton alloc] initWithFrame:NSZeroRect] autorelease];
-    [skipGitCheckbox setButtonType:NSSwitchButton];
-    [skipGitCheckbox setTitle:NSLocalizedString(@"Skip .git folders", @"Preference to omit .git directories from scans")];
-    [skipGitCheckbox bind:NSValueBinding toObject:self withKeyPath:@"values.SkipGitFolders" options:nil];
-    [skipGitCheckbox sizeToFit];
-    [skipGitCheckbox setFrameOrigin:NSMakePoint(12.0, 12.0)];
-    [skipGitCheckbox setAutoresizingMask:NSViewMinYMargin | NSViewMaxXMargin];
+    NSArray *checkboxes = @[
+        [self _checkboxWithTitle:NSLocalizedString(@"Skip .git folders", @"Preference to omit .git directories from scans") bindingKey:@"values.SkipGitFolders"],
+        [self _checkboxWithTitle:NSLocalizedString(@"Skip .build folders", @"Preference to omit .build directories from scans") bindingKey:@"values.SkipDotBuildFolders"],
+        [self _checkboxWithTitle:NSLocalizedString(@"Skip .swiftpm folders", @"Preference to omit .swiftpm directories from scans") bindingKey:@"values.SkipSwiftPMFolders"],
+        [self _checkboxWithTitle:NSLocalizedString(@"Skip build folders", @"Preference to omit build directories from scans") bindingKey:@"values.SkipBuildFolders"],
+        [self _checkboxWithTitle:NSLocalizedString(@"Skip DerivedData folders", @"Preference to omit DerivedData directories from scans") bindingKey:@"values.SkipDerivedDataFolders"],
+        [self _checkboxWithTitle:NSLocalizedString(@"Skip SourcePackages folders", @"Preference to omit SourcePackages directories from scans") bindingKey:@"values.SkipSourcePackagesFolders"],
+    ];
+
+    CGFloat y = 12.0;
+    for (NSButton *checkbox in [checkboxes reverseObjectEnumerator]) {
+        [checkbox setFrameOrigin:NSMakePoint(12.0, y)];
+        [controlBox addSubview:checkbox];
+        y = NSMaxY([checkbox frame]) + 8.0;
+    }
 
     NSRect controlBoxFrame = [controlBox frame];
-    CGFloat requiredHeight = NSMaxY([skipGitCheckbox frame]) + 12.0;
+    CGFloat requiredHeight = y + 12.0;
     if (controlBoxFrame.size.height < requiredHeight) {
         controlBoxFrame.size.height = requiredHeight;
         [controlBox setFrame:controlBoxFrame];
     }
-
-    [controlBox addSubview:skipGitCheckbox];
 }
 
 @end

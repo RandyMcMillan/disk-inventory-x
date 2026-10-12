@@ -25,6 +25,51 @@ unsigned g_fileCount;
 unsigned g_folderCount;
 static unsigned g_packageCheckCount = 0;
 
+static BOOL FSItemShouldSkipDirectory(NSURL *currentUrl)
+{
+    NSString *lastPathComponent = [currentUrl lastPathComponent];
+    if (lastPathComponent == nil)
+        return NO;
+
+    if ( [[NSUserDefaults standardUserDefaults] boolForKey: SkipGitFolders]
+        && [lastPathComponent isEqualToString:@".git"] )
+    {
+        return YES;
+    }
+
+    if ( [[NSUserDefaults standardUserDefaults] boolForKey: SkipDotBuildFolders]
+        && [lastPathComponent isEqualToString:@".build"] )
+    {
+        return YES;
+    }
+
+    if ( [[NSUserDefaults standardUserDefaults] boolForKey: SkipSwiftPMFolders]
+        && [lastPathComponent isEqualToString:@".swiftpm"] )
+    {
+        return YES;
+    }
+
+    if ( [[NSUserDefaults standardUserDefaults] boolForKey: SkipBuildFolders]
+        && ([lastPathComponent isEqualToString:@"build"] || [lastPathComponent isEqualToString:@"Build"]) )
+    {
+        return YES;
+    }
+
+    if ( [[NSUserDefaults standardUserDefaults] boolForKey: SkipDerivedDataFolders]
+        && [lastPathComponent isEqualToString:@"DerivedData"] )
+    {
+        return YES;
+    }
+
+    if ( [[NSUserDefaults standardUserDefaults] boolForKey: SkipSourcePackagesFolders]
+        && [lastPathComponent isEqualToString:@"SourcePackages"] )
+    {
+        return YES;
+    }
+
+    return NO;
+}
+
 //global cache for kind names
 NSMutableDictionary *g_kindNameDictionary = nil;
 
@@ -968,99 +1013,37 @@ NSString* FSItemLoadingFailedException = @"FSItemLoadingFailedException";
                                               return YES;
                                       }
                                       ];
-    NSUInteger lastEnumLevel = 1;
-    BOOL lastItemWasDir = NO;
-    FSItem *lastDirItem = nil;
-    
     for ( NSURL *currentUrl in dirEnum)
     {
         // cache all needed properties (NSURL purges all values upon next pass through the run loop)
         [currentUrl cacheResourcesInArray: urlProperties];
 
-        if ( [[NSUserDefaults standardUserDefaults] boolForKey: SkipGitFolders]
-            && [[currentUrl lastPathComponent] isEqualToString:@".git"]
-            && [currentUrl isDirectory] )
+        if ( [currentUrl isDirectory] && FSItemShouldSkipDirectory(currentUrl) )
         {
             [dirEnum skipDescendants];
-            lastItemWasDir = YES;
-            lastDirItem = nil;
-            lastEnumLevel = [dirEnum level];
             continue;
         }
-        
-        if ( [dirEnum level] > lastEnumLevel )
-        {
-#ifdef DEBUG
-            // we have entered a sub directory
-            // we expect NSDirectoryEnumerator do do a "deep first" search, so:
-            
-            NSAssert(lastItemWasDir, @"if we are now one level deeper, the last item must have been a directory");
-            NSAssert(lastDirItem == [[itemStack lastObject]->_childs lastObject], @"lastDirItem is supposed to be last item added as last child\n   last dir:            '%@'\n    last child:  '%@'",
-                     [[lastDirItem fileURL] path], [[[[itemStack lastObject]->_childs lastObject] fileURL] path]);
-            // level must be one deeper
-            NSAssert( (lastEnumLevel +1) == [dirEnum level], @"not dived into dir?? current level: %lu, last level: %lu", lastEnumLevel, [dirEnum level]);
-            
-            NSURL *lastDirUrl = [lastDirItem fileURL];
-            
-            // "item" must be immediate child of "lastDir"
-            NSAssert([currentUrl residesInDirectoryURL: lastDirUrl], @"current item is not child of last dir\n    current path: '%@'\n    current dir:  '%@'\n   last dir:            '%@'",
-                     [currentUrl path],
-                     [[currentUrl path] stringByDeletingLastPathComponent],
-                     [lastDirUrl path]);
-#endif
-            [itemStack addObject: lastDirItem];
-            
+
+        while ([itemStack count] > 0 && ![currentUrl residesInDirectoryURL:[[itemStack lastObject] fileURL]]) {
             //should we cancel the loading?
-            if ( [delegate respondsToSelector: @selector(fsItemEnteringFolder:)]
-                && ![delegate fsItemEnteringFolder: lastDirItem] )
+            if ( [delegate respondsToSelector: @selector(fsItemExittingFolder:)]
+                && ![delegate fsItemExittingFolder: [itemStack lastObject]] )
             {
                 [NSException raise: FSItemLoadingCanceledException format: @""];
             }
-        }
-        else if ([dirEnum level] < lastEnumLevel )
-        {
-            // level can be one or more steps higher
-            NSUInteger levelsWalkedUp = lastEnumLevel - [dirEnum level];
-            
-            // walk n levels up
-            for ( NSUInteger i = 0; i < levelsWalkedUp; i++ )
-            {
-                //should we cancel the loading?
-                if ( [delegate respondsToSelector: @selector(fsItemExittingFolder:)]
-                    && ![delegate fsItemExittingFolder: [itemStack lastObject]] )
-                {
-                    [NSException raise: FSItemLoadingCanceledException format: @""];
-                }
 
-                [itemStack removeLastObject];
-            }
-            
-#ifdef DEBUG
-            // .. and check whether the current url resides in that directory
-            NSURL *directoryURLExpected = [[itemStack lastObject] fileURL];
-            
-            // "currentUrl" must be immediate child of "directoryURLExpected"
-            NSAssert([currentUrl residesInDirectoryURL: directoryURLExpected], @"current item is not child of last dir\n    current path: '%@'\n    current dir:  '%@'\n   dir expected:            '%@'",
-                     [currentUrl path],
-                     [[currentUrl path] stringByDeletingLastPathComponent],
-                     [directoryURLExpected path]);
-#endif
+            [itemStack removeLastObject];
         }
-        else
-        {
-#ifdef DEBUG
-            // "item" must be immediate child of current directory
-            NSAssert([currentUrl residesInDirectoryURL: [[itemStack lastObject] fileURL]], @"current item is not child of last dir\n    current path: '%@'\n    current dir:  '%@'\n   last dir:            '%@'",
-                     [currentUrl path],
-                     [[currentUrl path] stringByDeletingLastPathComponent],
-                     [[[itemStack lastObject] fileURL] path]);
-#endif
-        }
+
+        if ([itemStack count] == 0)
+            [itemStack addObject:self];
         
         FSItem *currentItem = [[FSItem alloc] initWithURL: currentUrl
                                                    parent: [itemStack lastObject]
                                             setKindString: setKindStrings
                                           usePhysicalSize: usePhysicalSize];
+
+        BOOL shouldPushCurrentItem = [currentUrl isDirectory];
         
         if ( [currentUrl isFirmlink] )
         {
@@ -1076,12 +1059,18 @@ NSString* FSItemLoadingFailedException = @"FSItemLoadingFailedException";
             // although this should not be the case according to the docs
             [dirEnum skipDescendants];
         }
-        
-        lastItemWasDir = [currentUrl isDirectory];
-        
-        lastDirItem = lastItemWasDir ? currentItem : nil;
-        
-        lastEnumLevel = [dirEnum level];
+
+        if ( shouldPushCurrentItem )
+        {
+            //should we cancel the loading?
+            if ( [delegate respondsToSelector: @selector(fsItemEnteringFolder:)]
+                && ![delegate fsItemEnteringFolder: currentItem] )
+            {
+                [NSException raise: FSItemLoadingCanceledException format: @""];
+            }
+
+            [itemStack addObject: currentItem];
+        }
         
         [currentItem release];
     }
