@@ -194,6 +194,31 @@ No data will be read.</string>
 				<key>title</key>
 				<string>Finder Plugin</string>
 			</dict>
+			<key>FilesPrefPage</key>
+			<dict>
+				<key>category</key>
+				<string>Basic</string>
+				<key>defaultsArray</key>
+				<array>
+					<string>SkipGitFolders</string>
+					<string>SkipBuildFolders</string>
+					<string>SkipDotBuildFolders</string>
+					<string>SkipSwiftPMFolders</string>
+					<string>SkipNodeModulesFolders</string>
+					<string>SkipDerivedDataFolders</string>
+					<string>SkipSourcePackagesFolders</string>
+				</array>
+				<key>icon</key>
+				<string>FilesPreferences</string>
+				<key>identifier</key>
+				<string>FilesPrefPage</string>
+				<key>nib</key>
+				<string>FilesPreferencesPage</string>
+				<key>ordering</key>
+				<integer>5</integer>
+				<key>title</key>
+				<string>Files</string>
+			</dict>
 			<key>GeneralPrefPage</key>
 			<dict>
 				<key>category</key>
@@ -204,13 +229,6 @@ No data will be read.</string>
 					<string>ShowPackageContents</string>
 					<string>IgnoreCreatorCode</string>
 					<string>ShowPhysicalFileSize</string>
-					<string>SkipGitFolders</string>
-					<string>SkipBuildFolders</string>
-					<string>SkipDotBuildFolders</string>
-					<string>SkipSwiftPMFolders</string>
-					<string>SkipNodeModulesFolders</string>
-					<string>SkipDerivedDataFolders</string>
-					<string>SkipSourcePackagesFolders</string>
 					<string>UseSmallFontInFilesView</string>
 					<string>UseSmallFontInKindStatisticView</string>
 					<string>UseSmallFontInSelectionList</string>
