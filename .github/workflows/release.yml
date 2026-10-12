@@ -1,0 +1,35 @@
+name: Release
+
+on:
+  push:
+    tags:
+      - 'v*'
+
+permissions:
+  contents: write
+
+jobs:
+  release:
+    runs-on: macos-15
+
+    steps:
+      - name: Check out source
+        uses: actions/checkout@v4
+        with:
+          submodules: recursive
+
+      - name: Build Release
+        run: ./BuildRelease.sh
+
+      - name: Package app
+        run: |
+          ditto -c -k --keepParent "build/Release/Disk Inventory X.app" "Disk-Inventory-X-${GITHUB_REF_NAME}.zip"
+
+      - name: Create GitHub release
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        run: |
+          gh release create "${GITHUB_REF_NAME}" \
+            --title "Disk Inventory X ${GITHUB_REF_NAME}" \
+            --generate-notes \
+            "Disk-Inventory-X-${GITHUB_REF_NAME}.zip"
