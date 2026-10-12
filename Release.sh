@@ -11,10 +11,12 @@ APP_PATH="$BUILD_DIR/Release/$APP_NAME"
 CHECK_ONLY=0
 NOTARIZE=0
 TAG=""
-APPLE_ID="${APPLE_ID:-}"
+APPLE_ID_DEFAULT="randymcmillan1@mac.com"
+APPLE_ID="${APPLE_ID:-$APPLE_ID_DEFAULT}"
 TEAM_ID="${TEAM_ID:-}"
 PASSWORD="${NOTARY_PASSWORD:-${PASSWORD:-}}"
-SIGNING_IDENTITY="${SIGNING_IDENTITY:-}"
+SIGNING_IDENTITY_DEFAULT="Developer ID Application: Randy McMillan (M684FYCYG6)"
+SIGNING_IDENTITY="${SIGNING_IDENTITY:-$SIGNING_IDENTITY_DEFAULT}"
 
 usage() {
   echo "Usage: $0 [--check] [--notarize] [--apple-id EMAIL] [--team-id TEAM] [--password PASS] [tag]" >&2
