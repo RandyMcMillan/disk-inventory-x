@@ -1,0 +1,6 @@
+[submodule "OmniGroup"]
+	path = OmniGroup
+	url = https://github.com/omnigroup/OmniGroup.git
+[submodule "treemapview-framework"]
+	path = treemapview-framework
+	url = git@gitlab.com:tderlien/treemapview-framework.git
