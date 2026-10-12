@@ -8,18 +8,64 @@ BUILD_DIR="$(pwd)/build"
 APP_NAME="Disk Inventory X.app"
 APP_PATH="$BUILD_DIR/Release/$APP_NAME"
 
-if [ $# -gt 1 ]; then
-  echo "Usage: $0 [--check] [tag]" >&2
-  exit 1
-fi
-
 CHECK_ONLY=0
-TAG="${1:-}"
+NOTARIZE=0
+TAG=""
+APPLE_ID="${APPLE_ID:-}"
+TEAM_ID="${TEAM_ID:-}"
+PASSWORD="${NOTARY_PASSWORD:-${PASSWORD:-}}"
+SIGNING_IDENTITY="${SIGNING_IDENTITY:-}"
 
-if [ "$TAG" = "--check" ]; then
-  CHECK_ONLY=1
-  TAG=""
-fi
+usage() {
+  echo "Usage: $0 [--check] [--notarize] [--apple-id EMAIL] [--team-id TEAM] [--password PASS] [tag]" >&2
+  exit 1
+}
+
+while [ $# -gt 0 ]; do
+  case "$1" in
+    --check)
+      CHECK_ONLY=1
+      ;;
+    --notarize)
+      NOTARIZE=1
+      ;;
+    --apple-id)
+      shift
+      [ $# -gt 0 ] || usage
+      APPLE_ID="$1"
+      ;;
+    --team-id)
+      shift
+      [ $# -gt 0 ] || usage
+      TEAM_ID="$1"
+      ;;
+    --password)
+      shift
+      [ $# -gt 0 ] || usage
+      PASSWORD="$1"
+      ;;
+    --signing-identity)
+      shift
+      [ $# -gt 0 ] || usage
+      SIGNING_IDENTITY="$1"
+      ;;
+    --help|-h)
+      usage
+      ;;
+    --*)
+      echo "Unknown option: $1" >&2
+      usage
+      ;;
+    *)
+      if [ -n "$TAG" ]; then
+        echo "Unexpected extra argument: $1" >&2
+        usage
+      fi
+      TAG="$1"
+      ;;
+  esac
+  shift
+done
 
 if [ "$CHECK_ONLY" -eq 0 ] && [ -z "$TAG" ]; then
   TAG_VERSION=$(xcodebuild -workspace "$WORKSPACE" -scheme "$SCHEME" -configuration Release -showBuildSettings 2>/dev/null | awk '/MARKETING_VERSION/{print $3; exit}')
@@ -46,25 +92,71 @@ ZIP_NAME="$BUILD_DIR/Disk-Inventory-X-${TAG}.zip"
 
 ./BuildRelease.sh
 
-SIGNING_IDENTITY="${SIGNING_IDENTITY:-}"
 if [ -z "$SIGNING_IDENTITY" ]; then
-  SIGNING_IDENTITY=$(security find-identity -v -p codesigning | awk '/Apple Development:/{print $2; exit}')
+  if [ "$NOTARIZE" -eq 1 ]; then
+    SIGNING_IDENTITY=$(security find-identity -v -p codesigning | awk '/Developer ID Application:/{print $2; exit}')
+  else
+    SIGNING_IDENTITY=$(security find-identity -v -p codesigning | awk '/Apple Development:/{print $2; exit}')
+  fi
 fi
 if [ -z "$SIGNING_IDENTITY" ]; then
-  echo "Unable to find a codesigning identity. Set SIGNING_IDENTITY and retry." >&2
+  if [ "$NOTARIZE" -eq 1 ]; then
+    echo "No Developer ID Application signing identity was found in your keychain." >&2
+    echo "Install a Developer ID Application certificate, or rerun without --notarize for local signing only." >&2
+  else
+    echo "Unable to find an Apple Development codesigning identity. Set SIGNING_IDENTITY and retry." >&2
+  fi
+  security find-identity -v -p codesigning >&2
   exit 1
+fi
+
+if [ -z "$TEAM_ID" ]; then
+  TEAM_ID=$(xcodebuild -workspace "$WORKSPACE" -scheme "$SCHEME" -configuration Release -showBuildSettings 2>/dev/null | awk '/DEVELOPMENT_TEAM/{print $3; exit}')
+fi
+if [ -z "$TEAM_ID" ]; then
+  TEAM_ID="M684FYCYG6"
 fi
 
 find "$APP_PATH/Contents/Frameworks" -name '*.cstemp' -delete
 
 for FRAMEWORK in "$APP_PATH"/Contents/Frameworks/*.framework; do
   if [ -d "$FRAMEWORK" ]; then
-    codesign --force --sign "$SIGNING_IDENTITY" --timestamp=none --options runtime "$FRAMEWORK"
+    if [ "$NOTARIZE" -eq 1 ]; then
+      codesign --force --sign "$SIGNING_IDENTITY" --timestamp --options runtime "$FRAMEWORK"
+    else
+      codesign --force --sign "$SIGNING_IDENTITY" --timestamp=none --options runtime "$FRAMEWORK"
+    fi
   fi
 done
 
-codesign --force --sign "$SIGNING_IDENTITY" --timestamp=none --options runtime "$APP_PATH"
+if [ "$NOTARIZE" -eq 1 ]; then
+  codesign --force --sign "$SIGNING_IDENTITY" --timestamp --options runtime "$APP_PATH"
+else
+  codesign --force --sign "$SIGNING_IDENTITY" --timestamp=none --options runtime "$APP_PATH"
+fi
 codesign --verify --deep --strict --verbose=2 "$APP_PATH"
+
+if [ "$NOTARIZE" -eq 1 ]; then
+  if [ -z "$APPLE_ID" ]; then
+    echo "Missing --apple-id (or APPLE_ID)." >&2
+    exit 1
+  fi
+  if [ -z "$PASSWORD" ]; then
+    echo "Missing --password (or NOTARY_PASSWORD)." >&2
+    exit 1
+  fi
+
+  NOTARIZE_ZIP="$BUILD_DIR/Disk-Inventory-X-${TAG}-notarize.zip"
+  ditto -c -k --keepParent "$APP_PATH" "$NOTARIZE_ZIP"
+  xcrun notarytool submit "$NOTARIZE_ZIP" \
+    --apple-id "$APPLE_ID" \
+    --team-id "$TEAM_ID" \
+    --password "$PASSWORD" \
+    --wait
+  xcrun stapler staple "$APP_PATH"
+  codesign --verify --deep --strict --verbose=2 "$APP_PATH"
+  spctl --assess --type execute --verbose=4 "$APP_PATH"
+fi
 
 ditto -c -k --keepParent "$APP_PATH" "$ZIP_NAME"
 

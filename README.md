@@ -80,6 +80,14 @@ To verify the existing app signature without rebuilding:
 ./Release.sh --check
 ```
 
+To notarize and staple the app before packaging, pass your Apple ID and app-specific password:
+
+```sh
+./Release.sh --notarize --apple-id you@example.com --password "app-specific-password"
+```
+
+The script defaults the team ID from the Xcode project and falls back to the repository team ID if needed. You can still override it with `--team-id`.
+
 ## Repository layout
 
 - `AppController.{h,m}` - application entry point and delegate
