@@ -94,6 +94,9 @@
 		FCCFB3A5307D31530010474B /* MainWindowToolbarToolbar.strings in Resources */ = {isa = PBXBuildFile; fileRef = FCCFB3A4307D31530010474B /* MainWindowToolbarToolbar.strings */; };
 		FCD5DAFE09CDD4260051C1CF /* MainWindow.m in Sources */ = {isa = PBXBuildFile; fileRef = FCD5DAFC09CDD4260051C1CF /* MainWindow.m */; };
 		FCFB17B621B876A400E3F8C4 /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = FCFB17B521B876A400E3F8C4 /* Images.xcassets */; };
+		711DDCC7CF94E88E03C7693D /* FilesPrefPage.m in Sources */ = {isa = PBXBuildFile; fileRef = 12E26F9514ED7D24978E1817 /* FilesPrefPage.m */; };
+		4AF02E4BD9A5AA20F4C80961 /* FilesPreferences.tiff in Resources */ = {isa = PBXBuildFile; fileRef = CD59B9110FB091B5094EC4C2 /* FilesPreferences.tiff */; };
+		99A0DDEB68A4E148253CB7C1 /* FilesPreferencesPage.nib in Resources */ = {isa = PBXBuildFile; fileRef = EBF1C9B96A094703F1F69BA5 /* FilesPreferencesPage.nib */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -4147,6 +4150,14 @@
 		FCD71DB70984141E00590D16 /* release notes.txt */ = {isa = PBXFileReference; fileEncoding = 30; lastKnownFileType = text; name = "release notes.txt"; path = "documentation/release notes.txt"; sourceTree = "<group>"; };
 		FCEEFC0421FE5B6700E9785E /* de */ = {isa = PBXFileReference; lastKnownFileType = wrapper.nib; name = de; path = de.lproj/FinderCMPreferencesPage.nib; sourceTree = "<group>"; };
 		FCFB17B521B876A400E3F8C4 /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; name = Images.xcassets; path = "Disk Inventory X/Images.xcassets"; sourceTree = "<group>"; };
+		1089B93A7758BE0B045472F1 /* FilesPrefPage.h */ = {isa = PBXFileReference; fileEncoding = 30; lastKnownFileType = sourcecode.c.h; path = FilesPrefPage.h; sourceTree = "<group>"; };
+		12E26F9514ED7D24978E1817 /* FilesPrefPage.m */ = {isa = PBXFileReference; fileEncoding = 30; lastKnownFileType = sourcecode.c.objc; path = FilesPrefPage.m; sourceTree = "<group>"; };
+		CD59B9110FB091B5094EC4C2 /* FilesPreferences.tiff */ = {isa = PBXFileReference; lastKnownFileType = image.tiff; path = FilesPreferences.tiff; sourceTree = "<group>"; };
+		D91E5BFB51F214CE1413C8A9 /* en */ = {isa = PBXFileReference; lastKnownFileType = wrapper.nib; name = en; path = en.lproj/FilesPreferencesPage.nib; sourceTree = "<group>"; };
+		C4B16BAEBB2683F928738921 /* de */ = {isa = PBXFileReference; lastKnownFileType = wrapper.nib; name = de; path = de.lproj/FilesPreferencesPage.nib; sourceTree = "<group>"; };
+		41C233F35D7BD63986EE3A7C /* es */ = {isa = PBXFileReference; lastKnownFileType = wrapper.nib; name = es; path = es.lproj/FilesPreferencesPage.nib; sourceTree = "<group>"; };
+		8237764016853F2975B12AAE /* fr */ = {isa = PBXFileReference; lastKnownFileType = wrapper.nib; name = fr; path = fr.lproj/FilesPreferencesPage.nib; sourceTree = "<group>"; };
+		EBF1C9B96A094703F1F69BA5 /* FilesPreferencesPage.nib */ = {isa = PBXFileReference; lastKnownFileType = wrapper.nib; name = FilesPreferencesPage.nib; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -8942,6 +8953,8 @@
 				FCCFB2C8097FA42B009EA2B6 /* TreeMapPrefPage.m */,
 				FCCFB2C9097FA42B009EA2B6 /* GeneralPrefPage.h */,
 				FCCFB2CA097FA42B009EA2B6 /* GeneralPrefPage.m */,
+				1089B93A7758BE0B045472F1 /* FilesPrefPage.h */,
+				12E26F9514ED7D24978E1817 /* FilesPrefPage.m */,
 			);
 			name = Preferences;
 			sourceTree = "<group>";
@@ -9077,10 +9090,12 @@
 			children = (
 				FCCFB36C097FA4C1009EA2B6 /* TreeMapPreferencesPage.nib */,
 				FCCFB353097FA4C1009EA2B6 /* GeneralPreferencesPage.nib */,
+				EBF1C9B96A094703F1F69BA5 /* FilesPreferencesPage.nib */,
 				FCCFB351097FA4C1009EA2B6 /* FinderCMPreferencesPage.nib */,
 				FCCFB368097FA4C1009EA2B6 /* Preferences.strings */,
 				FCCFB337097FA44A009EA2B6 /* TreeMapPreferences.tiff */,
 				FCCFB338097FA44A009EA2B6 /* GeneralPreferences.tiff */,
+				CD59B9110FB091B5094EC4C2 /* FilesPreferences.tiff */,
 				FCCFB339097FA44A009EA2B6 /* FinderCMPreferences.tiff */,
 			);
 			name = Preferences;
@@ -9900,6 +9915,8 @@
 				FCCFB37F097FA4C1009EA2B6 /* Preferences.strings in Resources */,
 				FCCFB380097FA4C1009EA2B6 /* TreeMap.nib in Resources */,
 				FCCFB381097FA4C1009EA2B6 /* TreeMapPreferencesPage.nib in Resources */,
+				99A0DDEB68A4E148253CB7C1 /* FilesPreferencesPage.nib in Resources */,
+				4AF02E4BD9A5AA20F4C80961 /* FilesPreferences.tiff in Resources */,
 				FC2C2CA2238C802600D04E20 /* memory usage using NSURL.txt in Resources */,
 				FCCFB382097FA4C1009EA2B6 /* VolumesPanel.nib in Resources */,
 				FC4C4AC109802035004CCA22 /* Help in Resources */,
@@ -9940,6 +9957,7 @@
 				FCCFB30E097FA42B009EA2B6 /* PrefsPageBase.m in Sources */,
 				FCCFB30F097FA42B009EA2B6 /* TreeMapPrefPage.m in Sources */,
 				FCCFB310097FA42B009EA2B6 /* GeneralPrefPage.m in Sources */,
+				711DDCC7CF94E88E03C7693D /* FilesPrefPage.m in Sources */,
 				FCCFB312097FA42B009EA2B6 /* Timing.c in Sources */,
 				FCCFB313097FA42B009EA2B6 /* FileSizeFormatter.m in Sources */,
 				FCCFB314097FA42B009EA2B6 /* FileSizeTransformer.m in Sources */,
@@ -10807,6 +10825,17 @@
 				AA2B2B87277E43D10040ED6C /* en */,
 			);
 			name = MainWindowToolbarToolbar.strings;
+			sourceTree = "<group>";
+		};
+		EBF1C9B96A094703F1F69BA5 /* FilesPreferencesPage.nib */ = {
+			isa = PBXVariantGroup;
+			children = (
+				C4B16BAEBB2683F928738921 /* de */,
+				41C233F35D7BD63986EE3A7C /* es */,
+				8237764016853F2975B12AAE /* fr */,
+				D91E5BFB51F214CE1413C8A9 /* en */,
+			);
+			name = FilesPreferencesPage.nib;
 			sourceTree = "<group>";
 		};
 /* End PBXVariantGroup section */
