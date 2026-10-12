@@ -19,6 +19,7 @@ extern NSString *SkipGitFolders;
 extern NSString *SkipBuildFolders;
 extern NSString *SkipDotBuildFolders;
 extern NSString *SkipSwiftPMFolders;
+extern NSString *SkipNodeModulesFolders;
 extern NSString *SkipDerivedDataFolders;
 extern NSString *SkipSourcePackagesFolders;
 extern NSString *UseSmallFontInKindStatistic;

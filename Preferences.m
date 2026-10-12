@@ -21,6 +21,7 @@ NSString *SkipGitFolders				= @"SkipGitFolders";
 NSString *SkipBuildFolders				= @"SkipBuildFolders";
 NSString *SkipDotBuildFolders			= @"SkipDotBuildFolders";
 NSString *SkipSwiftPMFolders			= @"SkipSwiftPMFolders";
+NSString *SkipNodeModulesFolders		= @"SkipNodeModulesFolders";
 NSString *SkipDerivedDataFolders		= @"SkipDerivedDataFolders";
 NSString *SkipSourcePackagesFolders		= @"SkipSourcePackagesFolders";
 NSString *UseSmallFontInKindStatistic	= @"UseSmallFontInKindStatisticView";

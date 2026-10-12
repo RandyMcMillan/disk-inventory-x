@@ -49,6 +49,12 @@ static BOOL FSItemShouldSkipDirectory(NSURL *currentUrl)
         return YES;
     }
 
+    if ( [[NSUserDefaults standardUserDefaults] boolForKey: SkipNodeModulesFolders]
+        && [lastPathComponent isEqualToString:@"node_modules"] )
+    {
+        return YES;
+    }
+
     if ( [[NSUserDefaults standardUserDefaults] boolForKey: SkipBuildFolders]
         && ([lastPathComponent isEqualToString:@"build"] || [lastPathComponent isEqualToString:@"Build"]) )
     {

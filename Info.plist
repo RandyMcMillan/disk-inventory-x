@@ -157,6 +157,8 @@ No data will be read.</string>
 				<true/>
 				<key>SkipSwiftPMFolders</key>
 				<true/>
+				<key>SkipNodeModulesFolders</key>
+				<true/>
 				<key>SkipDerivedDataFolders</key>
 				<true/>
 				<key>SkipSourcePackagesFolders</key>
@@ -206,6 +208,7 @@ No data will be read.</string>
 					<string>SkipBuildFolders</string>
 					<string>SkipDotBuildFolders</string>
 					<string>SkipSwiftPMFolders</string>
+					<string>SkipNodeModulesFolders</string>
 					<string>SkipDerivedDataFolders</string>
 					<string>SkipSourcePackagesFolders</string>
 					<string>UseSmallFontInFilesView</string>

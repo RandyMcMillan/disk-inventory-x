@@ -40,6 +40,7 @@
         [self _checkboxWithTitle:NSLocalizedString(@"Skip .git folders", @"Preference to omit .git directories from scans") bindingKey:@"values.SkipGitFolders"],
         [self _checkboxWithTitle:NSLocalizedString(@"Skip .build folders", @"Preference to omit .build directories from scans") bindingKey:@"values.SkipDotBuildFolders"],
         [self _checkboxWithTitle:NSLocalizedString(@"Skip .swiftpm folders", @"Preference to omit .swiftpm directories from scans") bindingKey:@"values.SkipSwiftPMFolders"],
+        [self _checkboxWithTitle:NSLocalizedString(@"Skip node_modules folders", @"Preference to omit node_modules directories from scans") bindingKey:@"values.SkipNodeModulesFolders"],
         [self _checkboxWithTitle:NSLocalizedString(@"Skip build folders", @"Preference to omit build directories from scans") bindingKey:@"values.SkipBuildFolders"],
         [self _checkboxWithTitle:NSLocalizedString(@"Skip DerivedData folders", @"Preference to omit DerivedData directories from scans") bindingKey:@"values.SkipDerivedDataFolders"],
         [self _checkboxWithTitle:NSLocalizedString(@"Skip SourcePackages folders", @"Preference to omit SourcePackages directories from scans") bindingKey:@"values.SkipSourcePackagesFolders"],
