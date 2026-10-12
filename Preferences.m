@@ -17,6 +17,7 @@ NSString *ShowFreeSpace					= @"ShowFreeSpace";
 NSString *ShowOtherSpace				= @"ShowOtherSpace";
 NSString *IgnoreCreatorCode				= @"IgnoreCreatorCode";
 NSString *ShowPhysicalFileSize			= @"ShowPhysicalFileSize"; //logical size otherwise (like the Finder)
+NSString *SkipGitFolders				= @"SkipGitFolders";
 NSString *UseSmallFontInKindStatistic	= @"UseSmallFontInKindStatisticView";
 NSString *UseSmallFontInFilesView		= @"UseSmallFontInFilesView";
 NSString *UseSmallFontInSelectionList	= @"UseSmallFontInSelectionList";
@@ -162,4 +163,3 @@ NSString *ShareKindColors				= @"ShareKindColors";
 }
 
 @end
-

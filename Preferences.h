@@ -15,6 +15,7 @@ extern NSString *ShowFreeSpace;
 extern NSString *ShowOtherSpace;
 extern NSString *IgnoreCreatorCode;
 extern NSString *ShowPhysicalFileSize; //logical size otherwise (like the Finder)
+extern NSString *SkipGitFolders;
 extern NSString *UseSmallFontInKindStatistic;
 extern NSString *UseSmallFontInFilesView;
 extern NSString *UseSmallFontInSelectionList;

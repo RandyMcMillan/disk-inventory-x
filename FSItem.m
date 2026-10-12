@@ -15,6 +15,7 @@
 //
 
 #import "FSItem.h"
+#import "Preferences.h"
 #import "NSURL-Extensions.h"
 #import <OmniFoundation/NSMutableArray-OFExtensions.h>
 #import "NTFilePasteboardSource.h"
@@ -975,6 +976,17 @@ NSString* FSItemLoadingFailedException = @"FSItemLoadingFailedException";
     {
         // cache all needed properties (NSURL purges all values upon next pass through the run loop)
         [currentUrl cacheResourcesInArray: urlProperties];
+
+        if ( [[NSUserDefaults standardUserDefaults] boolForKey: SkipGitFolders]
+            && [[currentUrl lastPathComponent] isEqualToString:@".git"]
+            && [currentUrl isDirectory] )
+        {
+            [dirEnum skipDescendants];
+            lastItemWasDir = YES;
+            lastDirItem = nil;
+            lastEnumLevel = [dirEnum level];
+            continue;
+        }
         
         if ( [dirEnum level] > lastEnumLevel )
         {
@@ -1149,4 +1161,3 @@ NSString* FSItemLoadingFailedException = @"FSItemLoadingFailedException";
 }
 
 @end
-

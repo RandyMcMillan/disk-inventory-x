@@ -149,6 +149,8 @@ No data will be read.</string>
 				<false/>
 				<key>ShowPhysicalFileSize</key>
 				<true/>
+				<key>SkipGitFolders</key>
+				<true/>
 				<key>SplitWindowHorizontally</key>
 				<false/>
 				<key>UseSmallFontInFilesView</key>
@@ -190,6 +192,7 @@ No data will be read.</string>
 					<string>ShowPackageContents</string>
 					<string>IgnoreCreatorCode</string>
 					<string>ShowPhysicalFileSize</string>
+					<string>SkipGitFolders</string>
 					<string>UseSmallFontInFilesView</string>
 					<string>UseSmallFontInKindStatisticView</string>
 					<string>UseSmallFontInSelectionList</string>
