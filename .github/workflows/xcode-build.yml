@@ -1,0 +1,32 @@
+name: Xcode Build
+
+on:
+  push:
+  pull_request:
+  workflow_dispatch:
+
+jobs:
+  build:
+    runs-on: macos-14
+    strategy:
+      fail-fast: false
+      matrix:
+        scheme:
+          - Disk Inventory X
+          - owxtool
+
+    steps:
+      - name: Check out source
+        uses: actions/checkout@v4
+
+      - name: Build ${{ matrix.scheme }}
+        run: |
+          xcodebuild \
+            -workspace workspace.xcworkspace \
+            -scheme "${{ matrix.scheme }}" \
+            -configuration Debug \
+            -destination 'generic/platform=macOS' \
+            CODE_SIGNING_ALLOWED=NO \
+            CODE_SIGNING_REQUIRED=NO \
+            CODE_SIGN_IDENTITY="" \
+            build
