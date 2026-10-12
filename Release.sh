@@ -36,7 +36,15 @@ if [ -z "$SIGNING_IDENTITY" ]; then
   exit 1
 fi
 
-codesign --force --sign "$SIGNING_IDENTITY" --timestamp=none --options runtime --deep "$APP_PATH"
+find "$APP_PATH/Contents/Frameworks" -name '*.cstemp' -delete
+
+for FRAMEWORK in "$APP_PATH"/Contents/Frameworks/*.framework; do
+  if [ -d "$FRAMEWORK" ]; then
+    codesign --force --sign "$SIGNING_IDENTITY" --timestamp=none --options runtime "$FRAMEWORK"
+  fi
+done
+
+codesign --force --sign "$SIGNING_IDENTITY" --timestamp=none --options runtime "$APP_PATH"
 codesign --verify --deep --strict --verbose=2 "$APP_PATH"
 
 ditto -c -k --keepParent "$APP_PATH" "$ZIP_NAME"
