@@ -9,18 +9,37 @@ APP_NAME="Disk Inventory X.app"
 APP_PATH="$BUILD_DIR/Release/$APP_NAME"
 
 if [ $# -gt 1 ]; then
-  echo "Usage: $0 [tag]" >&2
+  echo "Usage: $0 [--check] [tag]" >&2
   exit 1
 fi
 
+CHECK_ONLY=0
 TAG="${1:-}"
-if [ -z "$TAG" ]; then
+
+if [ "$TAG" = "--check" ]; then
+  CHECK_ONLY=1
+  TAG=""
+fi
+
+if [ "$CHECK_ONLY" -eq 0 ] && [ -z "$TAG" ]; then
   TAG_VERSION=$(xcodebuild -workspace "$WORKSPACE" -scheme "$SCHEME" -configuration Release -showBuildSettings 2>/dev/null | awk '/MARKETING_VERSION/{print $3; exit}')
   if [ -z "$TAG_VERSION" ]; then
     echo "Unable to determine MARKETING_VERSION from the Xcode project." >&2
     exit 1
   fi
   TAG="v${TAG_VERSION}"
+fi
+
+if [ "$CHECK_ONLY" -eq 1 ]; then
+  if [ ! -d "$APP_PATH" ]; then
+    echo "Missing app bundle: $APP_PATH" >&2
+    exit 1
+  fi
+
+  codesign -dv --verbose=4 "$APP_PATH" 2>&1 | sed -n '1,40p'
+  codesign --verify --deep --strict --verbose=2 "$APP_PATH"
+  spctl --assess --type execute --verbose=4 "$APP_PATH"
+  exit 0
 fi
 
 ZIP_NAME="$BUILD_DIR/Disk-Inventory-X-${TAG}.zip"

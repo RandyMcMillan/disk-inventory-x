@@ -74,6 +74,12 @@ Pass an explicit tag if needed:
 ./Release.sh v2.0.0
 ```
 
+To verify the existing app signature without rebuilding:
+
+```sh
+./Release.sh --check
+```
+
 ## Repository layout
 
 - `AppController.{h,m}` - application entry point and delegate
