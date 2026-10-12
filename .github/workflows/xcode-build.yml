@@ -28,6 +28,8 @@ jobs:
             -scheme "${{ matrix.scheme }}" \
             -configuration Debug \
             -destination 'generic/platform=macOS' \
+            ARCHS=arm64 \
+            ONLY_ACTIVE_ARCH=YES \
             CODE_SIGNING_ALLOWED=NO \
             CODE_SIGNING_REQUIRED=NO \
             CODE_SIGN_IDENTITY="" \

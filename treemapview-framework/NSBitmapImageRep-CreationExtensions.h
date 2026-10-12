@@ -1,3 +1,6 @@
+#ifndef TREEMAPVIEW_NSBITMAPIMAGEREP_CREATIONEXTENSIONS_H
+#define TREEMAPVIEW_NSBITMAPIMAGEREP_CREATIONEXTENSIONS_H
+
 //
 //  NSBitmapImageRep-Extensions.h
 //  TreeMapView
@@ -21,3 +24,5 @@
 //and adds the NSBitmapImageRep as the only image represensation
 - (NSImage*) suitableImageForView: (NSView*) view;
 @end
+
+#endif /* TREEMAPVIEW_NSBITMAPIMAGEREP_CREATIONEXTENSIONS_H */

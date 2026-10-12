@@ -1,3 +1,6 @@
+#ifndef TREEMAPVIEW_TMVCUSHIONRENDERER_H
+#define TREEMAPVIEW_TMVCUSHIONRENDERER_H
+
 //
 //  TMVCushionRenderer.h
 //  Disk Accountant
@@ -47,3 +50,5 @@
 + (NSColor*) normalizeColor: (NSColor*) color;
 
 @end
+
+#endif /* TREEMAPVIEW_TMVCUSHIONRENDERER_H */

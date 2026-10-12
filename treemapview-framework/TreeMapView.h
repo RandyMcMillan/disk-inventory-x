@@ -1,3 +1,6 @@
+#ifndef TREEMAPVIEW_TREEVIEW_H
+#define TREEMAPVIEW_TREEVIEW_H
+
 //
 //  TreeMapView.h
 //  TreeMapView
@@ -71,6 +74,8 @@ typedef TMVItem* TMVCellId;
 	//the time calculation has to be done by the caller
 
 @end
+
+#endif /* TREEMAPVIEW_TREEVIEW_H */
 
 // Data Source Note: Specifying nil as the item will refer to the "root" item.
 // (there must be one (and only one!) root item)

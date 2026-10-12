@@ -680,6 +680,29 @@
 		};
 /* End PBXContainerItemProxy section */
 
+/* Begin PBXTargetDependency section */
+		4B673FCA307D316A0010474B /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 4AA1E67A08AA764600E2FF6B /* OmniAppKit */;
+			targetProxy = 4B673EB6307D31540010474B /* PBXContainerItemProxy */;
+		};
+		4B673FCB307D316A0010474B /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 4A33D40608A0191B003A3FA5 /* OmniBase */;
+			targetProxy = 4B673EC9307D31540010474B /* PBXContainerItemProxy */;
+		};
+		4B673FCC307D316A0010474B /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 4A4E05FE08AA72B10098FF0F /* OmniFoundation */;
+			targetProxy = 4B673F24307D31540010474B /* PBXContainerItemProxy */;
+		};
+		4B673FCD307D316A0010474B /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 8DC2EF4F0486A6940098B216 /* TreeMapView */;
+			targetProxy = 4B673FC3307D316A0010474B /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
+
 /* Begin PBXCopyFilesBuildPhase section */
 		FCED9ED9106ABB4D00667E44 /* CopyFiles */ = {
 			isa = PBXCopyFilesBuildPhase;
@@ -9074,6 +9097,10 @@
 			buildRules = (
 			);
 			dependencies = (
+				4B673FCA307D316A0010474B /* PBXTargetDependency */,
+				4B673FCB307D316A0010474B /* PBXTargetDependency */,
+				4B673FCC307D316A0010474B /* PBXTargetDependency */,
+				4B673FCD307D316A0010474B /* PBXTargetDependency */,
 			);
 			name = "Disk Inventory X";
 			productInstallPath = "$(HOME)/Applications";
@@ -10772,6 +10799,10 @@
 				CURRENT_PROJECT_VERSION = 1.4b2;
 				DEVELOPMENT_TEAM = M684FYCYG6;
 				ENABLE_HARDENED_RUNTIME = YES;
+				HEADER_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)/OmniGroup/Frameworks",
+				);
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(FRAMEWORK_SEARCH_PATHS)",
 					"$(FRAMEWORK_SEARCH_PATHS_TREEMAP)",
@@ -10785,7 +10816,7 @@
 				GCC_VERSION = "";
 				INFOPLIST_FILE = Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/../Frameworks";
-				MACOSX_DEPLOYMENT_TARGET = 26.0;
+				MACOSX_DEPLOYMENT_TARGET = 10.13;
 				MARKETING_VERSION = 1.4b2;
 				ONLY_ACTIVE_ARCH = YES;
 				PRODUCT_BUNDLE_IDENTIFIER = com.derlien.DiskInventoryX;
@@ -10808,6 +10839,10 @@
 				DEVELOPMENT_TEAM = M684FYCYG6;
 				ENABLE_HARDENED_RUNTIME = YES;
 				ENABLE_NS_ASSERTIONS = NO;
+				HEADER_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)/OmniGroup/Frameworks",
+				);
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(FRAMEWORK_SEARCH_PATHS)",
 					"$(FRAMEWORK_SEARCH_PATHS_TREEMAP)",
@@ -10820,7 +10855,7 @@
 				GCC_VERSION = "";
 				INFOPLIST_FILE = Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/../Frameworks";
-				MACOSX_DEPLOYMENT_TARGET = 26.0;
+				MACOSX_DEPLOYMENT_TARGET = 10.13;
 				MARKETING_VERSION = 1.4b2;
 				PRODUCT_BUNDLE_IDENTIFIER = com.derlien.DiskInventoryX;
 				PRODUCT_NAME = "Disk Inventory X";
@@ -10835,16 +10870,16 @@
 			buildSettings = {
 				CLANG_ANALYZER_LOCALIZABILITY_NONLOCALIZED = YES;
 				ENABLE_TESTABILITY = YES;
-				HEADER_SEARCH_PATHS = (
-					"$(inherited)",
-					"$(PROJECT_DIR)/OmniGroup/Frameworks",
-				);
 				FRAMEWORK_SEARCH_PATHS = "";
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "Disk Inventory X_Prefix.pch";
 				GCC_VERSION = "";
 				GCC_WARN_ABOUT_RETURN_TYPE = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
+				HEADER_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)/OmniGroup/Frameworks",
+				);
 				MACOSX_DEPLOYMENT_TARGET = 10.11;
 				ONLY_ACTIVE_ARCH = NO;
 				SDKROOT = macosx;
@@ -10856,15 +10891,15 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				CLANG_ANALYZER_LOCALIZABILITY_NONLOCALIZED = YES;
-				HEADER_SEARCH_PATHS = (
-					"$(inherited)",
-					"$(PROJECT_DIR)/OmniGroup/Frameworks",
-				);
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "Disk Inventory X_Prefix.pch";
 				GCC_VERSION = "";
 				GCC_WARN_ABOUT_RETURN_TYPE = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
+				HEADER_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)/OmniGroup/Frameworks",
+				);
 				MACOSX_DEPLOYMENT_TARGET = 10.11;
 				SDKROOT = macosx;
 				SHARED_PRECOMPS_DIR = "$(PROJECT_TEMP_DIR)/SharedPrecompiledHeaders";

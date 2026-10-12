@@ -2,7 +2,7 @@
 
 #import <Cocoa/Cocoa.h>
 #import "FileSystemDoc.h"
-#import <TreeMapView/TreeMapView.h>
+#import "treemapview-framework/TreeMapView.h"
 #import "OAToolbarWindowControllerEx.h"
 #import <OmniAppKit/OASplitView.h>
 

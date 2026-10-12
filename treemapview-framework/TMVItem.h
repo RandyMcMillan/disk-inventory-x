@@ -1,3 +1,6 @@
+#ifndef TREEMAPVIEW_TMVITEM_H
+#define TREEMAPVIEW_TMVITEM_H
+
 //
 //  TMVItem.h
 //  DiskAccountant
@@ -47,3 +50,5 @@
 - (TMVItem *) hitTest: (NSPoint) aPoint;
 
 @end
+
+#endif /* TREEMAPVIEW_TMVITEM_H */

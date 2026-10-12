@@ -14,8 +14,8 @@
 
 #import "FileKindsTableController.h"
 #import <OmniAppKit/NSTableView-OAExtensions.h>
-#import <TreeMapView/TMVCushionRenderer.h>
-#import <TreeMapView/NSBitmapImageRep-CreationExtensions.h>
+#import "treemapview-framework/TMVCushionRenderer.h"
+#import "treemapview-framework/NSBitmapImageRep-CreationExtensions.h"
 #import "Preferences.h"
 #import "MainWindowController.h"
 
