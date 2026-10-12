@@ -1,6 +1,0 @@
-[submodule "OmniGroup"]
-	path = OmniGroup
-	url = https://github.com/RandyMcMillan/OmniGroup.git
-[submodule "treemapview-framework"]
-	path = treemapview-framework
-    url = https://github.com/RandyMcMillan/treemapview-framework.git
