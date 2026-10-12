@@ -24,7 +24,7 @@
     [checkbox setTitle:title];
     [checkbox bind:NSValueBinding toObject:self withKeyPath:bindingKey options:nil];
     [checkbox sizeToFit];
-    [checkbox setAutoresizingMask:NSViewMinYMargin | NSViewMaxXMargin];
+    [checkbox setAutoresizingMask:NSViewMaxYMargin | NSViewMinXMargin];
     return checkbox;
 }
 
@@ -46,18 +46,22 @@
         [self _checkboxWithTitle:NSLocalizedString(@"Skip SourcePackages folders", @"Preference to omit SourcePackages directories from scans") bindingKey:@"values.SkipSourcePackagesFolders"],
     ];
 
-    CGFloat y = 12.0;
-    for (NSButton *checkbox in [checkboxes reverseObjectEnumerator]) {
-        [checkbox setFrameOrigin:NSMakePoint(12.0, y)];
-        [controlBox addSubview:checkbox];
-        y = NSMaxY([checkbox frame]) + 8.0;
-    }
-
     NSRect controlBoxFrame = [controlBox frame];
-    CGFloat requiredHeight = y + 12.0;
-    if (controlBoxFrame.size.height < requiredHeight) {
-        controlBoxFrame.size.height = requiredHeight;
-        [controlBox setFrame:controlBoxFrame];
+    CGFloat checkboxHeight = 18.0;
+    CGFloat spacing = 8.0;
+    CGFloat margin = 12.0;
+    CGFloat columnWidth = 220.0;
+    CGFloat y = NSMaxY(controlBoxFrame) - margin - checkboxHeight;
+
+    for (NSButton *checkbox in checkboxes) {
+        NSRect frame = [checkbox frame];
+        frame.origin.x = margin;
+        frame.origin.y = y;
+        frame.size.width = columnWidth;
+        frame.size.height = checkboxHeight;
+        [checkbox setFrame:frame];
+        [controlBox addSubview:checkbox];
+        y -= checkboxHeight + spacing;
     }
 }
 
