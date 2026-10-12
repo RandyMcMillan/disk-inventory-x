@@ -489,6 +489,14 @@
 
 - (void)windowWillClose:(NSNotification *)aNotification
 {
+    [_treeMapView stopZooming];
+
+    if ( [_kindsDrawer state] != NSDrawerClosedState )
+        [_kindsDrawer close];
+
+    if ( [_selectionListDrawer state] != NSDrawerClosedState )
+        [_selectionListDrawer close];
+
 	if ( [[aNotification object] isMainWindow]
 		&& [[InfoPanelController sharedController] panelIsVisible] )
 	{
