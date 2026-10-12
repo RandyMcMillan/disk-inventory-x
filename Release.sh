@@ -162,6 +162,10 @@ fi
 
 ditto -c -k --keepParent "$APP_PATH" "$ZIP_NAME"
 
+if [ "$NOTARIZE" -eq 1 ] && ! git ls-remote --exit-code --tags origin "refs/tags/$TAG" >/dev/null 2>&1; then
+  git push origin "refs/tags/$TAG"
+fi
+
 if gh release view "$TAG" >/dev/null 2>&1; then
   gh release upload "$TAG" "$ZIP_NAME" --clobber
 else
