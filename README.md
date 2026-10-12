@@ -1,6 +1,6 @@
 # Disk Inventory X
 
-![Disk Inventory X screenshot](documentation/screenshot.png)
+![Disk Inventory X screenshot](screenshot.png)
 
 Disk Inventory X is a macOS disk-usage visualizer. It scans a folder or volume and presents the results as a treemap, alongside outline and statistics views that help identify what is consuming space.
 
