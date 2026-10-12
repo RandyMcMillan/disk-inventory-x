@@ -7,6 +7,9 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		4AF02E4BD9A5AA20F4C80961 /* FilesPreferences.tiff in Resources */ = {isa = PBXBuildFile; fileRef = CD59B9110FB091B5094EC4C2 /* FilesPreferences.tiff */; };
+		711DDCC7CF94E88E03C7693D /* FilesPrefPage.m in Sources */ = {isa = PBXBuildFile; fileRef = 12E26F9514ED7D24978E1817 /* FilesPrefPage.m */; };
+		99A0DDEB68A4E148253CB7C1 /* FilesPreferencesPage.nib in Resources */ = {isa = PBXBuildFile; fileRef = EBF1C9B96A094703F1F69BA5 /* FilesPreferencesPage.nib */; };
 		FC2A428A2219C89900A484D7 /* AppController.m in Sources */ = {isa = PBXBuildFile; fileRef = FC2A42892219C89900A484D7 /* AppController.m */; };
 		FC2B2BBB277E472C0040ED6C /* Cocoa.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1058C7A7FEA54F5311CA2CBB /* Cocoa.framework */; };
 		FC2B2BBC277E472F0040ED6C /* AppKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 2A37F4C4FDCFA73011CA2CEA /* AppKit.framework */; };
@@ -94,9 +97,6 @@
 		FCCFB3A5307D31530010474B /* MainWindowToolbarToolbar.strings in Resources */ = {isa = PBXBuildFile; fileRef = FCCFB3A4307D31530010474B /* MainWindowToolbarToolbar.strings */; };
 		FCD5DAFE09CDD4260051C1CF /* MainWindow.m in Sources */ = {isa = PBXBuildFile; fileRef = FCD5DAFC09CDD4260051C1CF /* MainWindow.m */; };
 		FCFB17B621B876A400E3F8C4 /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = FCFB17B521B876A400E3F8C4 /* Images.xcassets */; };
-		711DDCC7CF94E88E03C7693D /* FilesPrefPage.m in Sources */ = {isa = PBXBuildFile; fileRef = 12E26F9514ED7D24978E1817 /* FilesPrefPage.m */; };
-		4AF02E4BD9A5AA20F4C80961 /* FilesPreferences.tiff in Resources */ = {isa = PBXBuildFile; fileRef = CD59B9110FB091B5094EC4C2 /* FilesPreferences.tiff */; };
-		99A0DDEB68A4E148253CB7C1 /* FilesPreferencesPage.nib in Resources */ = {isa = PBXBuildFile; fileRef = EBF1C9B96A094703F1F69BA5 /* FilesPreferencesPage.nib */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -711,25 +711,6 @@
 		};
 /* End PBXContainerItemProxy section */
 
-/* Begin PBXTargetDependency section */
-		4B673FCA307D316A0010474B /* PBXTargetDependency */ = {
-			isa = PBXTargetDependency;
-			targetProxy = FC000001307D31540010474B /* PBXContainerItemProxy */;
-		};
-		4B673FCB307D316A0010474B /* PBXTargetDependency */ = {
-			isa = PBXTargetDependency;
-			targetProxy = FC000002307D31540010474B /* PBXContainerItemProxy */;
-		};
-		4B673FCC307D316A0010474B /* PBXTargetDependency */ = {
-			isa = PBXTargetDependency;
-			targetProxy = FC000003307D31540010474B /* PBXContainerItemProxy */;
-		};
-		4B673FCD307D316A0010474B /* PBXTargetDependency */ = {
-			isa = PBXTargetDependency;
-			targetProxy = FC000004307D31540010474B /* PBXContainerItemProxy */;
-		};
-/* End PBXTargetDependency section */
-
 /* Begin PBXCopyFilesBuildPhase section */
 		FCED9ED9106ABB4D00667E44 /* CopyFiles */ = {
 			isa = PBXCopyFilesBuildPhase;
@@ -748,9 +729,12 @@
 
 /* Begin PBXFileReference section */
 		1058C7A7FEA54F5311CA2CBB /* Cocoa.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Cocoa.framework; path = /System/Library/Frameworks/Cocoa.framework; sourceTree = "<absolute>"; };
+		1089B93A7758BE0B045472F1 /* FilesPrefPage.h */ = {isa = PBXFileReference; fileEncoding = 30; lastKnownFileType = sourcecode.c.h; path = FilesPrefPage.h; sourceTree = "<group>"; };
+		12E26F9514ED7D24978E1817 /* FilesPrefPage.m */ = {isa = PBXFileReference; fileEncoding = 30; lastKnownFileType = sourcecode.c.objc; path = FilesPrefPage.m; sourceTree = "<group>"; };
 		2A37F4C4FDCFA73011CA2CEA /* AppKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AppKit.framework; path = /System/Library/Frameworks/AppKit.framework; sourceTree = "<absolute>"; };
 		2A37F4C5FDCFA73011CA2CEA /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = /System/Library/Frameworks/Foundation.framework; sourceTree = "<absolute>"; };
 		32DBCF750370BD2300C91783 /* Disk Inventory X_Prefix.pch */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "Disk Inventory X_Prefix.pch"; sourceTree = "<group>"; };
+		41C233F35D7BD63986EE3A7C /* es */ = {isa = PBXFileReference; lastKnownFileType = wrapper.nib; name = es; path = es.lproj/FilesPreferencesPage.nib; sourceTree = "<group>"; };
 		4B6730DA307D31530010474B /* Omni-Global.xcconfig */ = {isa = PBXFileReference; lastKnownFileType = text.xcconfig; path = "Omni-Global.xcconfig"; sourceTree = "<group>"; };
 		4B6730DC307D31530010474B /* .gitignore */ = {isa = PBXFileReference; lastKnownFileType = text; path = .gitignore; sourceTree = "<group>"; };
 		4B6730DD307D31530010474B /* Omni-Application-Common.xcconfig */ = {isa = PBXFileReference; lastKnownFileType = text.xcconfig; path = "Omni-Application-Common.xcconfig"; sourceTree = "<group>"; };
@@ -3975,11 +3959,15 @@
 		4B673FBC307D31690010474B /* version.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = version.plist; sourceTree = "<group>"; };
 		4B673FBD307D31690010474B /* ZoomInfo.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ZoomInfo.h; sourceTree = "<group>"; };
 		4B673FBE307D31690010474B /* ZoomInfo.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ZoomInfo.m; sourceTree = "<group>"; };
+		8237764016853F2975B12AAE /* fr */ = {isa = PBXFileReference; lastKnownFileType = wrapper.nib; name = fr; path = fr.lproj/FilesPreferencesPage.nib; sourceTree = "<group>"; };
 		8D15AC370486D014006FF6A4 /* Disk Inventory X.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Disk Inventory X.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		AA2B2B87277E43D10040ED6C /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/MainWindowToolbarToolbar.strings; sourceTree = "<group>"; };
 		AA2D7D8A21FE4ABD004D0614 /* de */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = de; path = de.lproj/MainWindowToolbarToolbar.strings; sourceTree = "<group>"; };
 		AA42B8772202405A0080570A /* es */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = es; path = es.lproj/MainWindowToolbarToolbar.strings; sourceTree = "<group>"; };
 		AAA1D0CC2205FF2D004E9468 /* fr */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = fr; path = fr.lproj/MainWindowToolbarToolbar.strings; sourceTree = "<group>"; };
+		C4B16BAEBB2683F928738921 /* de */ = {isa = PBXFileReference; lastKnownFileType = wrapper.nib; name = de; path = de.lproj/FilesPreferencesPage.nib; sourceTree = "<group>"; };
+		CD59B9110FB091B5094EC4C2 /* FilesPreferences.tiff */ = {isa = PBXFileReference; lastKnownFileType = image.tiff; path = FilesPreferences.tiff; sourceTree = "<group>"; };
+		D91E5BFB51F214CE1413C8A9 /* en */ = {isa = PBXFileReference; lastKnownFileType = wrapper.nib; name = en; path = en.lproj/FilesPreferencesPage.nib; sourceTree = "<group>"; };
 		FC2A42882219C89900A484D7 /* AppController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppController.h; sourceTree = "<group>"; };
 		FC2A42892219C89900A484D7 /* AppController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AppController.m; sourceTree = "<group>"; };
 		FC2B2B7A277E43D00040ED6C /* en */ = {isa = PBXFileReference; lastKnownFileType = text.rtf; name = en; path = en.lproj/Credits.rtf; sourceTree = "<group>"; };
@@ -4150,14 +4138,6 @@
 		FCD71DB70984141E00590D16 /* release notes.txt */ = {isa = PBXFileReference; fileEncoding = 30; lastKnownFileType = text; name = "release notes.txt"; path = "documentation/release notes.txt"; sourceTree = "<group>"; };
 		FCEEFC0421FE5B6700E9785E /* de */ = {isa = PBXFileReference; lastKnownFileType = wrapper.nib; name = de; path = de.lproj/FinderCMPreferencesPage.nib; sourceTree = "<group>"; };
 		FCFB17B521B876A400E3F8C4 /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; name = Images.xcassets; path = "Disk Inventory X/Images.xcassets"; sourceTree = "<group>"; };
-		1089B93A7758BE0B045472F1 /* FilesPrefPage.h */ = {isa = PBXFileReference; fileEncoding = 30; lastKnownFileType = sourcecode.c.h; path = FilesPrefPage.h; sourceTree = "<group>"; };
-		12E26F9514ED7D24978E1817 /* FilesPrefPage.m */ = {isa = PBXFileReference; fileEncoding = 30; lastKnownFileType = sourcecode.c.objc; path = FilesPrefPage.m; sourceTree = "<group>"; };
-		CD59B9110FB091B5094EC4C2 /* FilesPreferences.tiff */ = {isa = PBXFileReference; lastKnownFileType = image.tiff; path = FilesPreferences.tiff; sourceTree = "<group>"; };
-		D91E5BFB51F214CE1413C8A9 /* en */ = {isa = PBXFileReference; lastKnownFileType = wrapper.nib; name = en; path = en.lproj/FilesPreferencesPage.nib; sourceTree = "<group>"; };
-		C4B16BAEBB2683F928738921 /* de */ = {isa = PBXFileReference; lastKnownFileType = wrapper.nib; name = de; path = de.lproj/FilesPreferencesPage.nib; sourceTree = "<group>"; };
-		41C233F35D7BD63986EE3A7C /* es */ = {isa = PBXFileReference; lastKnownFileType = wrapper.nib; name = es; path = es.lproj/FilesPreferencesPage.nib; sourceTree = "<group>"; };
-		8237764016853F2975B12AAE /* fr */ = {isa = PBXFileReference; lastKnownFileType = wrapper.nib; name = fr; path = fr.lproj/FilesPreferencesPage.nib; sourceTree = "<group>"; };
-		EBF1C9B96A094703F1F69BA5 /* FilesPreferencesPage.nib */ = {isa = PBXFileReference; lastKnownFileType = wrapper.nib; name = FilesPreferencesPage.nib; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -9994,6 +9974,25 @@
 		};
 /* End PBXSourcesBuildPhase section */
 
+/* Begin PBXTargetDependency section */
+		4B673FCA307D316A0010474B /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			targetProxy = FC000001307D31540010474B /* PBXContainerItemProxy */;
+		};
+		4B673FCB307D316A0010474B /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			targetProxy = FC000002307D31540010474B /* PBXContainerItemProxy */;
+		};
+		4B673FCC307D316A0010474B /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			targetProxy = FC000003307D31540010474B /* PBXContainerItemProxy */;
+		};
+		4B673FCD307D316A0010474B /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			targetProxy = FC000004307D31540010474B /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
+
 /* Begin PBXVariantGroup section */
 		4B673169307D31530010474B /* OmniAppKit.strings */ = {
 			isa = PBXVariantGroup;
@@ -10662,6 +10661,17 @@
 			name = InfoPlist.strings;
 			sourceTree = "<group>";
 		};
+		EBF1C9B96A094703F1F69BA5 /* FilesPreferencesPage.nib */ = {
+			isa = PBXVariantGroup;
+			children = (
+				C4B16BAEBB2683F928738921 /* de */,
+				41C233F35D7BD63986EE3A7C /* es */,
+				8237764016853F2975B12AAE /* fr */,
+				D91E5BFB51F214CE1413C8A9 /* en */,
+			);
+			name = FilesPreferencesPage.nib;
+			sourceTree = "<group>";
+		};
 		FC4C4ABF09802035004CCA22 /* Help */ = {
 			isa = PBXVariantGroup;
 			children = (
@@ -10827,17 +10837,6 @@
 			name = MainWindowToolbarToolbar.strings;
 			sourceTree = "<group>";
 		};
-		EBF1C9B96A094703F1F69BA5 /* FilesPreferencesPage.nib */ = {
-			isa = PBXVariantGroup;
-			children = (
-				C4B16BAEBB2683F928738921 /* de */,
-				41C233F35D7BD63986EE3A7C /* es */,
-				8237764016853F2975B12AAE /* fr */,
-				D91E5BFB51F214CE1413C8A9 /* en */,
-			);
-			name = FilesPreferencesPage.nib;
-			sourceTree = "<group>";
-		};
 /* End PBXVariantGroup section */
 
 /* Begin XCBuildConfiguration section */
@@ -10849,13 +10848,9 @@
 				CODE_SIGN_IDENTITY = "Apple Development";
 				CODE_SIGN_STYLE = Automatic;
 				COMBINE_HIDPI_IMAGES = YES;
-				CURRENT_PROJECT_VERSION = 1.4b2;
+				CURRENT_PROJECT_VERSION = 1.0.0;
 				DEVELOPMENT_TEAM = M684FYCYG6;
 				ENABLE_HARDENED_RUNTIME = YES;
-				HEADER_SEARCH_PATHS = (
-					"$(inherited)",
-					"$(PROJECT_DIR)/OmniGroup/Frameworks",
-				);
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(FRAMEWORK_SEARCH_PATHS)",
 					"$(FRAMEWORK_SEARCH_PATHS_TREEMAP)",
@@ -10867,10 +10862,14 @@
 				GCC_OPTIMIZATION_LEVEL = 0;
 				GCC_PREPROCESSOR_DEFINITIONS = "DEBUG=1";
 				GCC_VERSION = "";
+				HEADER_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)/OmniGroup/Frameworks",
+				);
 				INFOPLIST_FILE = Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/../Frameworks";
 				MACOSX_DEPLOYMENT_TARGET = 10.13;
-				MARKETING_VERSION = 1.4b2;
+				MARKETING_VERSION = 2.0.0;
 				ONLY_ACTIVE_ARCH = YES;
 				PRODUCT_BUNDLE_IDENTIFIER = com.derlien.DiskInventoryX;
 				PRODUCT_NAME = "Disk Inventory X";
@@ -10888,14 +10887,10 @@
 				CLANG_ENABLE_OBJC_WEAK = YES;
 				CODE_SIGN_IDENTITY = "Apple Development";
 				COMBINE_HIDPI_IMAGES = YES;
-				CURRENT_PROJECT_VERSION = 1.4b2;
+				CURRENT_PROJECT_VERSION = 1.0.0;
 				DEVELOPMENT_TEAM = M684FYCYG6;
 				ENABLE_HARDENED_RUNTIME = YES;
 				ENABLE_NS_ASSERTIONS = NO;
-				HEADER_SEARCH_PATHS = (
-					"$(inherited)",
-					"$(PROJECT_DIR)/OmniGroup/Frameworks",
-				);
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(FRAMEWORK_SEARCH_PATHS)",
 					"$(FRAMEWORK_SEARCH_PATHS_TREEMAP)",
@@ -10906,10 +10901,14 @@
 				GCC_GENERATE_DEBUGGING_SYMBOLS = NO;
 				GCC_PREPROCESSOR_DEFINITIONS = "";
 				GCC_VERSION = "";
+				HEADER_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)/OmniGroup/Frameworks",
+				);
 				INFOPLIST_FILE = Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/../Frameworks";
 				MACOSX_DEPLOYMENT_TARGET = 10.13;
-				MARKETING_VERSION = 1.4b2;
+				MARKETING_VERSION = 2.0.0;
 				PRODUCT_BUNDLE_IDENTIFIER = com.derlien.DiskInventoryX;
 				PRODUCT_NAME = "Disk Inventory X";
 				SDKROOT = macosx;
