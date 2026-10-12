@@ -59,6 +59,21 @@ The repository includes a release helper script:
 
 That script runs the Xcode release build for the app target.
 
+To sign the app locally, package it, and upload the zip to GitHub Releases, use:
+
+```sh
+./Release.sh
+```
+
+The script looks for an Apple Development codesigning identity automatically; set
+`SIGNING_IDENTITY` if you want to override it.
+
+Pass an explicit tag if needed:
+
+```sh
+./Release.sh v2.0.0
+```
+
 ## Repository layout
 
 - `AppController.{h,m}` - application entry point and delegate

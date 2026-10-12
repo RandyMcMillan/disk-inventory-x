@@ -225,6 +225,7 @@
 			);
 			name = "Run Tests";
 			outputPaths = (
+				"$(DERIVED_FILE_DIR)/TestOutput",
 				"$(DERIVED_FILE_DIR)/FixStringsFileTestsOK",
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -253,6 +254,7 @@
 				CLANG_ENABLE_OBJC_ARC = YES;
 				CODE_SIGNING_ALLOWED = NO;
 				CODE_SIGNING_REQUIRED = NO;
+				ENABLE_USER_SCRIPT_SANDBOXING = NO;
 				PRODUCT_NAME = FixStringsFile;
 			};
 			name = Debug;
@@ -264,6 +266,7 @@
 				CLANG_ENABLE_OBJC_ARC = YES;
 				CODE_SIGNING_ALLOWED = NO;
 				CODE_SIGNING_REQUIRED = NO;
+				ENABLE_USER_SCRIPT_SANDBOXING = NO;
 				PRODUCT_NAME = FixStringsFile;
 			};
 			name = Release;
